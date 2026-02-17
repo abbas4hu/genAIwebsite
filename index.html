@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abbas & Zehra | Oct 31, 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-gold: #C5A059;
             --soft-white: #FCFAF8;
             --deep-charcoal: #2D2D2D;
-            --overlay-dark: rgba(0, 0, 0, 0.45);
+            --overlay-dark: rgba(0, 0, 0, 0.4);
         }
 
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--soft-white); color: var(--deep-charcoal); line-height: 1.6; scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--deep-charcoal);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-        /* FIXED VIDEO HERO */
+        /* HERO SECTION - OPTIMIZED FOR YOUR VERTICAL PROPOSAL VIDEO */
         .hero-container {
             position: relative;
             height: 100vh;
@@ -38,24 +47,97 @@
             height: 100%;
             z-index: -2;
             transform: translate(-50%, -50%);
-            object-fit: cover; /* This prevents vertical video from stretching */
+            /* Centers the beach proposal and fills the screen */
+            object-fit: cover; 
+            object-position: center 30%; /* Slightly adjusted to keep faces in view */
         }
 
-        .overlay { position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--overlay-dark)); z-index: -1; }
-        .hero-content h1 { font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 0.5rem; letter-spacing: 2px; }
-        .hero-content p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 5px; font-weight: 300; }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--overlay-dark));
+            z-index: -1;
+        }
 
-        nav { position: sticky; top: 0; background: white; padding: 1.2rem; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); z-index: 1000; }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--deep-charcoal); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        .hero-content h1 { 
+            font-size: clamp(3rem, 8vw, 5.5rem); 
+            margin-bottom: 0.5rem; 
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
 
+        .hero-content p { 
+            font-size: 1.1rem; 
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            font-weight: 300;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 1.2rem;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--deep-charcoal);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* SECTIONS */
         .section { padding: 100px 10%; max-width: 1100px; margin: 0 auto; text-align: center; }
-        .verse { font-family: 'Cormorant Upright', serif; font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px; }
-        
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border-bottom: 3px solid var(--primary-gold); text-align: left; }
-        .card h3 { color: var(--primary-gold); margin-top: 0; font-size: 1.4rem; }
 
-        .btn { background: var(--primary-gold); color: white; padding: 18px 50px; text-decoration: none; display: inline-block; margin-top: 25px; transition: 0.3s; font-weight: 600; letter-spacing: 1px; border: 1px solid var(--primary-gold); }
+        .verse {
+            font-family: 'Cormorant Upright', serif;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border-bottom: 3px solid var(--primary-gold);
+            text-align: left;
+        }
+
+        .card h3 { color: var(--primary-gold); margin-top: 0; }
+
+        /* BUTTONS */
+        .btn {
+            background: var(--primary-gold);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 25px;
+            transition: 0.3s;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary-gold);
+        }
+
         .btn:hover { background: transparent; color: var(--primary-gold); transform: translateY(-3px); }
 
         @media (max-width: 768px) { .hero-content h1 { font-size: 3.2rem; } .section { padding: 60px 20px; } }
@@ -64,7 +146,7 @@
 <body>
 
     <div class="hero-container">
-        <video autoplay muted loop playsinline id="bg-video">
+        <video autoplay muted loop playsinline preload="auto" id="bg-video">
             <source src="propvid.mp4" type="video/mp4">
         </video>
         <div class="overlay"></div>
@@ -76,6 +158,7 @@
 
     <nav>
         <a href="#event">The Wedding</a>
+        <a href="#attire">Dress Code</a>
         <a href="#travel">Luxury Stays</a>
         <a href="#dining">Fine Dining</a>
         <a href="#rsvp">RSVP</a>
@@ -86,7 +169,16 @@
         <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto;">
             <h3>The Bowden</h3>
             <p>1775 Keller Pkwy, Keller, TX 76248</p>
-            <p><strong>Ceremony:</strong> 5:00 PM | <strong>Reception:</strong> 6:30 PM</p>
+            <p><strong>Ceremony:</strong> 5:00 PM in the Holly Chapel<br>
+            <strong>Reception:</strong> 6:30 PM in the Greater Keller Ballroom</p>
+        </div>
+    </section>
+
+    <section id="attire" class="section">
+        <h2>Suggested Attire</h2>
+        <div style="background: #fdfaf4; padding: 40px; border-radius: 12px; border: 1px solid #e5d5b7;">
+            <h3 style="color: var(--primary-gold);">Formal Cultural Attire</h3>
+            <p>We invite you to join us in celebrating our heritage. Please wear your finest formal traditional attire, such as Sherwanis, Saris, or Lehengas.</p>
         </div>
     </section>
 
@@ -95,34 +187,25 @@
         <div class="info-grid">
             <div class="card">
                 <h3>The Westin Southlake</h3>
-                <p><strong>AAA Four Diamond.</strong> Nestled in Southlake Town Square, offering modern luxury, a resort-style pool, and sophisticated dining at Jellico's.</p>
+                <p>Modern luxury in Southlake Town Square, only minutes from the venue.</p>
             </div>
             <div class="card">
                 <h3>Hotel Drover</h3>
-                <p><strong>Autograph Collection.</strong> For guests wanting a "Rustic Luxury" experience in the Fort Worth Stockyards. High-end design with true Texas soul.</p>
-            </div>
-            <div class="card">
-                <h3>The Ritz-Carlton, Las Colinas</h3>
-                <p><strong>The Pinnacle of DFW Luxury.</strong> A world-class resort experience with a championship golf course and expansive spa, located 15-20 mins away.</p>
+                <p>Autograph Collection luxury in the Fort Worth Stockyards for a high-end Texas experience.</p>
             </div>
         </div>
     </section>
 
     <section id="dining" class="section">
         <h2>Fine Dining in DFW</h2>
-        <p>For our guests looking to experience the best of Dallas-Fort Worth cuisine.</p>
         <div class="info-grid">
             <div class="card">
                 <h3>Monarch</h3>
-                <p>Perched on the 50th floor in Downtown Dallas. Refined Italian cuisine with the most iconic skyline views in the city.</p>
+                <p>Italian fine dining on the 50th floor with breathtaking views of the Dallas skyline.</p>
             </div>
             <div class="card">
                 <h3>Truluck’s Southlake</h3>
-                <p>Top-tier seafood and stone crab. A sophisticated atmosphere with live piano music and impeccable service.</p>
-            </div>
-            <div class="card">
-                <h3>The Mansion Restaurant</h3>
-                <p>A Dallas legend. Contemporary American cuisine with French flair, located in the historic Rosewood Mansion on Turtle Creek.</p>
+                <p>Exquisite seafood and stone crab in a sophisticated atmosphere nearby in Southlake.</p>
             </div>
         </div>
     </section>
@@ -130,11 +213,11 @@
     <section id="rsvp" class="section" style="background-color: #f7f4f0;">
         <h2>Join Our Celebration</h2>
         <p>Please kindly respond by September 20th, 2026.</p>
-        <a href="mailto:abbas4hu@gmail.com?subject=Wedding RSVP&body=Guest Name:%0D%0ANumber of Guests:%0D%0ADietary Restrictions:" class="btn">RSVP VIA EMAIL</a>
+        <a href="mailto:abbas4hu@gmail.com?subject=Wedding RSVP - Abbas and Zehra&body=Guest Name:%0D%0ANumber of Guests:%0D%0ADietary Restrictions:" class="btn">RSVP VIA EMAIL</a>
     </section>
 
-    <footer style="padding: 40px; color: #999; font-size: 0.7rem; text-align: center;">
-        ABBAS HUSSAIN & ZEHRA HASSAN • 2026
+    <footer style="padding: 60px; color: #999; font-size: 0.75rem; text-align: center;">
+        ABBAS HUSSAIN & ZEHRA HASSAN • 2026 • THE BOWDEN
     </footer>
 
 </body>
