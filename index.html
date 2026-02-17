@@ -1,68 +1,256 @@
-<style>
-    /* ... existing root and body styles ... */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abbas & Zehra | Oct 31, 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gold: #C5A059;
+            --soft-white: #FCFAF8;
+            --deep-charcoal: #2D2D2D;
+            --overlay-dark: rgba(0, 0, 0, 0.4);
+        }
 
-    .hero-container {
-        position: relative;
-        height: 100vh;
-        width: 100%;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-        background-color: #000; /* Fallback color */
-    }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--deep-charcoal);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-    #bg-video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-        transform: translate(-50%, -50%);
-        
-        /* THE FIX FOR VERTICAL VIDEO: */
-        /* This ensures the video fills the screen and crops the top/bottom 
-           instead of stretching the width. */
-        object-fit: cover; 
-        
-        /* Smooth fade-in */
-        animation: fadeIn 2s ease-in;
-    }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+        /* HERO SECTION WITH VERTICAL VIDEO OPTIMIZATION */
+        .hero-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background-color: #000;
+        }
 
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        /* Subtle dark gradient to help the white text "pop" over the video */
-        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
-        z-index: -1;
-    }
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            /* Prevents vertical video from stretching; crops to fit screen */
+            object-fit: cover; 
+            object-position: center;
+        }
 
-    /* Adjusting text for vertical video overlap */
-    .hero-content {
-        padding: 0 20px;
-        z-index: 1;
-    }
-</style>
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), var(--overlay-dark));
+            z-index: -1;
+        }
 
-<div class="hero-container">
-    <video autoplay muted loop playsinline id="bg-video">
-        <source src="propvid.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="overlay"></div>
-    <div class="hero-content">
-        <h1>Abbas & Zehra</h1>
-        <p>October 31, 2026 • Keller, Texas</p>
+        .hero-content h1 { 
+            font-size: clamp(3rem, 8vw, 5.5rem); 
+            margin-bottom: 0.5rem; 
+            letter-spacing: 2px;
+        }
+
+        .hero-content p { 
+            font-size: 1.1rem; 
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            font-weight: 300;
+        }
+
+        /* STICKY NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 1.2rem;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--deep-charcoal);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--primary-gold); }
+
+        /* CONTENT SECTIONS */
+        .section { padding: 100px 10%; max-width: 1100px; margin: 0 auto; text-align: center; }
+
+        .verse {
+            font-family: 'Cormorant Upright', serif;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border-bottom: 3px solid var(--primary-gold);
+            text-align: left;
+        }
+
+        .card h3 { color: var(--primary-gold); margin-top: 0; font-size: 1.5rem; }
+
+        /* BUTTONS */
+        .btn {
+            background: var(--primary-gold);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-gold);
+            transform: translateY(-3px);
+        }
+
+        .thank-you-note {
+            max-width: 750px;
+            margin: 0 auto 60px auto;
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        footer {
+            padding: 60px;
+            background: #fff;
+            color: #aaa;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            .section { padding: 60px 20px; }
+            .hero-content h1 { font-size: 3.2rem; }
+            nav a { margin: 0 8px; font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-container">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="propvid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Abbas & Zehra</h1>
+            <p>October 31, 2026 • Keller, Texas</p>
+        </div>
     </div>
-</div>
+
+    <nav>
+        <a href="#event">The Wedding</a>
+        <a href="#travel">Travel & Stay</a>
+        <a href="#halal">Halal DFW</a>
+        <a href="#rsvp">RSVP</a>
+    </nav>
+
+    <section id="event" class="section">
+        <div class="verse">"And We created you in pairs."</div>
+        <h2>The Celebration</h2>
+        <div class="info-grid">
+            <div class="card" style="text-align: center;">
+                <h3>The Bowden</h3>
+                <p>1775 Keller Pkwy<br>Keller, TX 76248</p>
+                <p><strong>Ceremony:</strong> 5:00 PM in the Holly Chapel<br>
+                <strong>Reception:</strong> 6:30 PM in the Greater Keller Ballroom</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="travel" class="section" style="background-color: #fcfcfc;">
+        <h2>Travel & Accommodations</h2>
+        <div class="info-grid">
+            <div class="card">
+                <h3>Airports</h3>
+                <p><strong>DFW International:</strong> 11 miles from venue (Recommended).<br>
+                <strong>Dallas Love Field:</strong> 27 miles from venue.</p>
+            </div>
+            <div class="card">
+                <h3>Hampton Inn & Suites</h3>
+                <p>Located only 1.5 miles from The Bowden. A convenient home base for our guests staying in Keller.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="halal" class="section">
+        <h2>Halal Dining & Things To Do</h2>
+        <div class="info-grid">
+            <div class="card">
+                <h3>The Liam's Steakhouse</h3>
+                <p>A premier halal fine-dining experience in the heart of Dallas. Perfect for a sophisticated evening.</p>
+            </div>
+            <div class="card">
+                <h3>Ricky's Hot Chicken</h3>
+                <p>A DFW legend for halal Nashville-style hot chicken. A casual and delicious local favorite.</p>
+            </div>
+            <div class="card">
+                <h3>Explore the City</h3>
+                <p>Enjoy a morning at the <strong>Dallas Arboretum</strong> or grab a coffee at <strong>Klyde Warren Park</strong> downtown.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp" class="section" style="background-color: #f7f4f0;">
+        <div class="thank-you-note">
+            <h3>A Heartfelt Thank You</h3>
+            <p>Our journey to this day has been made all the more special by your love and support. Thank you for traveling to be part of our joyous celebration. We cannot wait to see you in Keller!</p>
+        </div>
+        <h2>Will You Join Us?</h2>
+        <p>Please kindly respond by September 20th, 2026.</p>
+        <a href="mailto:abbas4hu@gmail.com?subject=Wedding RSVP - [Your Name]" class="btn">RSVP TO ABBAS</a>
+    </section>
+
+    <footer>
+        ABBAS HUSSAIN & ZEHRA HASSAN • 2026 • THE BOWDEN
+    </footer>
+
+</body>
+</html>
