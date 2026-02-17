@@ -1,98 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abbas & Zehra | Oct 31, 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-gold: #C5A059;
-            --soft-white: #FCFAF8;
-            --deep-charcoal: #2D2D2D;
-        }
+<style>
+    /* ... existing root and body styles ... */
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--soft-white);
-            color: var(--deep-charcoal);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    .hero-container {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        background-color: #000; /* Fallback color */
+    }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
-
-        /* VIDEO HERO SECTION */
-        .hero-container {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
-
-        #bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -2;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.35); /* Darkens video slightly for text readability */
-            z-index: -1;
-        }
-
-        .hero-content h1 { font-size: 5rem; margin-bottom: 0.5rem; letter-spacing: 2px; }
-        .hero-content p { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 5px; }
-
-        /* NAVIGATION */
-        nav {
-            position: sticky; top: 0; background: white; padding: 1.2rem; text-align: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); z-index: 1000;
-        }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--deep-charcoal); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; }
-
-        /* CONTENT SECTIONS */
-        .section { padding: 100px 10%; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .verse { font-family: 'Cormorant Upright', serif; font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px; }
+    #bg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        transform: translate(-50%, -50%);
         
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border-bottom: 3px solid var(--primary-gold); text-align: left; }
-        .card h3 { color: var(--primary-gold); margin-top: 0; }
+        /* THE FIX FOR VERTICAL VIDEO: */
+        /* This ensures the video fills the screen and crops the top/bottom 
+           instead of stretching the width. */
+        object-fit: cover; 
+        
+        /* Smooth fade-in */
+        animation: fadeIn 2s ease-in;
+    }
 
-        .btn {
-            background: var(--primary-gold); color: white; padding: 18px 45px; text-decoration: none;
-            display: inline-block; margin-top: 20px; transition: 0.3s; font-weight: 600; letter-spacing: 1px;
-        }
-        .btn:hover { background: var(--deep-charcoal); transform: translateY(-2px); }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-        @media (max-width: 768px) { .hero-content h1 { font-size: 3rem; } .section { padding: 60px 5%; } }
-    </style>
-</head>
-<body>
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        /* Subtle dark gradient to help the white text "pop" over the video */
+        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+        z-index: -1;
+    }
 
-    <div class="hero-container">
-        <video autoplay muted loop playsinline id="bg-video">
-            <source src="propvid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1>
+    /* Adjusting text for vertical video overlap */
+    .hero-content {
+        padding: 0 20px;
+        z-index: 1;
+    }
+</style>
+
+<div class="hero-container">
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="propvid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Abbas & Zehra</h1>
+        <p>October 31, 2026 • Keller, Texas</p>
+    </div>
+</div>
