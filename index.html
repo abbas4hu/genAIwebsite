@@ -5,27 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abbas & Zehra | Oct 31, 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --primary-gold: #C5A059;
             --soft-white: #FCFAF8;
             --deep-charcoal: #2D2D2D;
-            --overlay-dark: rgba(0, 0, 0, 0.4);
+            --overlay-dark: rgba(0, 0, 0, 0.45);
         }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--soft-white);
-            color: var(--deep-charcoal);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--soft-white); color: var(--deep-charcoal); line-height: 1.6; scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
 
-        /* HERO SECTION WITH VERTICAL VIDEO OPTIMIZATION */
+        /* FIXED VIDEO HERO */
         .hero-container {
             position: relative;
             height: 100vh;
@@ -47,128 +38,27 @@
             height: 100%;
             z-index: -2;
             transform: translate(-50%, -50%);
-            /* Prevents vertical video from stretching; crops to fit screen */
-            object-fit: cover; 
-            object-position: center;
+            object-fit: cover; /* This prevents vertical video from stretching */
         }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), var(--overlay-dark));
-            z-index: -1;
-        }
+        .overlay { position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--overlay-dark)); z-index: -1; }
+        .hero-content h1 { font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 0.5rem; letter-spacing: 2px; }
+        .hero-content p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 5px; font-weight: 300; }
 
-        .hero-content h1 { 
-            font-size: clamp(3rem, 8vw, 5.5rem); 
-            margin-bottom: 0.5rem; 
-            letter-spacing: 2px;
-        }
+        nav { position: sticky; top: 0; background: white; padding: 1.2rem; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); z-index: 1000; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--deep-charcoal); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        .hero-content p { 
-            font-size: 1.1rem; 
-            text-transform: uppercase; 
-            letter-spacing: 5px; 
-            font-weight: 300;
-        }
-
-        /* STICKY NAVIGATION */
-        nav {
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 1.2rem;
-            text-align: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--deep-charcoal);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: 0.3s;
-        }
-
-        nav a:hover { color: var(--primary-gold); }
-
-        /* CONTENT SECTIONS */
         .section { padding: 100px 10%; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .verse { font-family: 'Cormorant Upright', serif; font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px; }
+        
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border-bottom: 3px solid var(--primary-gold); text-align: left; }
+        .card h3 { color: var(--primary-gold); margin-top: 0; font-size: 1.4rem; }
 
-        .verse {
-            font-family: 'Cormorant Upright', serif;
-            font-size: 2.5rem;
-            color: var(--primary-gold);
-            margin-bottom: 20px;
-        }
+        .btn { background: var(--primary-gold); color: white; padding: 18px 50px; text-decoration: none; display: inline-block; margin-top: 25px; transition: 0.3s; font-weight: 600; letter-spacing: 1px; border: 1px solid var(--primary-gold); }
+        .btn:hover { background: transparent; color: var(--primary-gold); transform: translateY(-3px); }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
-            border-bottom: 3px solid var(--primary-gold);
-            text-align: left;
-        }
-
-        .card h3 { color: var(--primary-gold); margin-top: 0; font-size: 1.5rem; }
-
-        /* BUTTONS */
-        .btn {
-            background: var(--primary-gold);
-            color: white;
-            padding: 18px 50px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 25px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border: 1px solid var(--primary-gold);
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: var(--primary-gold);
-            transform: translateY(-3px);
-        }
-
-        .thank-you-note {
-            max-width: 750px;
-            margin: 0 auto 60px auto;
-            font-size: 1.15rem;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        footer {
-            padding: 60px;
-            background: #fff;
-            color: #aaa;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-
-        /* MOBILE FIXES */
-        @media (max-width: 768px) {
-            .section { padding: 60px 20px; }
-            .hero-content h1 { font-size: 3.2rem; }
-            nav a { margin: 0 8px; font-size: 0.65rem; }
-        }
+        @media (max-width: 768px) { .hero-content h1 { font-size: 3.2rem; } .section { padding: 60px 20px; } }
     </style>
 </head>
 <body>
@@ -176,7 +66,6 @@
     <div class="hero-container">
         <video autoplay muted loop playsinline id="bg-video">
             <source src="propvid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
         <div class="overlay"></div>
         <div class="hero-content">
@@ -187,69 +76,65 @@
 
     <nav>
         <a href="#event">The Wedding</a>
-        <a href="#travel">Travel & Stay</a>
-        <a href="#halal">Halal DFW</a>
+        <a href="#travel">Luxury Stays</a>
+        <a href="#dining">Fine Dining</a>
         <a href="#rsvp">RSVP</a>
     </nav>
 
     <section id="event" class="section">
         <div class="verse">"And We created you in pairs."</div>
-        <h2>The Celebration</h2>
-        <div class="info-grid">
-            <div class="card" style="text-align: center;">
-                <h3>The Bowden</h3>
-                <p>1775 Keller Pkwy<br>Keller, TX 76248</p>
-                <p><strong>Ceremony:</strong> 5:00 PM in the Holly Chapel<br>
-                <strong>Reception:</strong> 6:30 PM in the Greater Keller Ballroom</p>
-            </div>
+        <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <h3>The Bowden</h3>
+            <p>1775 Keller Pkwy, Keller, TX 76248</p>
+            <p><strong>Ceremony:</strong> 5:00 PM | <strong>Reception:</strong> 6:30 PM</p>
         </div>
     </section>
 
     <section id="travel" class="section" style="background-color: #fcfcfc;">
-        <h2>Travel & Accommodations</h2>
+        <h2>Luxury Accommodations</h2>
         <div class="info-grid">
             <div class="card">
-                <h3>Airports</h3>
-                <p><strong>DFW International:</strong> 11 miles from venue (Recommended).<br>
-                <strong>Dallas Love Field:</strong> 27 miles from venue.</p>
+                <h3>The Westin Southlake</h3>
+                <p><strong>AAA Four Diamond.</strong> Nestled in Southlake Town Square, offering modern luxury, a resort-style pool, and sophisticated dining at Jellico's.</p>
             </div>
             <div class="card">
-                <h3>Hampton Inn & Suites</h3>
-                <p>Located only 1.5 miles from The Bowden. A convenient home base for our guests staying in Keller.</p>
+                <h3>Hotel Drover</h3>
+                <p><strong>Autograph Collection.</strong> For guests wanting a "Rustic Luxury" experience in the Fort Worth Stockyards. High-end design with true Texas soul.</p>
+            </div>
+            <div class="card">
+                <h3>The Ritz-Carlton, Las Colinas</h3>
+                <p><strong>The Pinnacle of DFW Luxury.</strong> A world-class resort experience with a championship golf course and expansive spa, located 15-20 mins away.</p>
             </div>
         </div>
     </section>
 
-    <section id="halal" class="section">
-        <h2>Halal Dining & Things To Do</h2>
+    <section id="dining" class="section">
+        <h2>Fine Dining in DFW</h2>
+        <p>For our guests looking to experience the best of Dallas-Fort Worth cuisine.</p>
         <div class="info-grid">
             <div class="card">
-                <h3>The Liam's Steakhouse</h3>
-                <p>A premier halal fine-dining experience in the heart of Dallas. Perfect for a sophisticated evening.</p>
+                <h3>Monarch</h3>
+                <p>Perched on the 50th floor in Downtown Dallas. Refined Italian cuisine with the most iconic skyline views in the city.</p>
             </div>
             <div class="card">
-                <h3>Ricky's Hot Chicken</h3>
-                <p>A DFW legend for halal Nashville-style hot chicken. A casual and delicious local favorite.</p>
+                <h3>Truluck’s Southlake</h3>
+                <p>Top-tier seafood and stone crab. A sophisticated atmosphere with live piano music and impeccable service.</p>
             </div>
             <div class="card">
-                <h3>Explore the City</h3>
-                <p>Enjoy a morning at the <strong>Dallas Arboretum</strong> or grab a coffee at <strong>Klyde Warren Park</strong> downtown.</p>
+                <h3>The Mansion Restaurant</h3>
+                <p>A Dallas legend. Contemporary American cuisine with French flair, located in the historic Rosewood Mansion on Turtle Creek.</p>
             </div>
         </div>
     </section>
 
     <section id="rsvp" class="section" style="background-color: #f7f4f0;">
-        <div class="thank-you-note">
-            <h3>A Heartfelt Thank You</h3>
-            <p>Our journey to this day has been made all the more special by your love and support. Thank you for traveling to be part of our joyous celebration. We cannot wait to see you in Keller!</p>
-        </div>
-        <h2>Will You Join Us?</h2>
+        <h2>Join Our Celebration</h2>
         <p>Please kindly respond by September 20th, 2026.</p>
-        <a href="mailto:abbas4hu@gmail.com?subject=Wedding RSVP - [Your Name]" class="btn">RSVP TO ABBAS</a>
+        <a href="mailto:abbas4hu@gmail.com?subject=Wedding RSVP&body=Guest Name:%0D%0ANumber of Guests:%0D%0ADietary Restrictions:" class="btn">RSVP VIA EMAIL</a>
     </section>
 
-    <footer>
-        ABBAS HUSSAIN & ZEHRA HASSAN • 2026 • THE BOWDEN
+    <footer style="padding: 40px; color: #999; font-size: 0.7rem; text-align: center;">
+        ABBAS HUSSAIN & ZEHRA HASSAN • 2026
     </footer>
 
 </body>
