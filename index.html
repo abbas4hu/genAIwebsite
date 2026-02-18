@@ -5,212 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abbas & Zehra | Oct 31, 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --primary-gold: #C5A059;
-            --soft-white: #FCFAF8;
-            --deep-charcoal: #2D2D2D;
-            --overlay-dark: rgba(0, 0, 0, 0.4);
-        }
+        :root { --primary-gold: #C5A059; --soft-white: #FCFAF8; --deep-charcoal: #2D2D2D; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--soft-white); color: var(--deep-charcoal); line-height: 1.6; scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; text-align: center; }
+        
+        /* New Hero Header without video */
+        .hero-header { padding: 100px 20px; text-align: center; background: white; border-bottom: 1px solid #eee; }
+        .hero-header h1 { font-size: 3.5rem; margin-bottom: 10px; color: var(--deep-charcoal); }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--soft-white);
-            color: var(--deep-charcoal);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+        nav { position: sticky; top: 0; background: white; padding: 1.2rem; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); z-index: 1000; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--deep-charcoal); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
+        .section { padding: 80px 10%; max-width: 1100px; margin: 0 auto; }
+        
+        /* Video Section Lower on Page */
+        .video-wrapper { position: relative; height: 80vh; width: 100%; overflow: hidden; margin: 40px 0; background: #000; }
+        #bg-video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* HERO SECTION - OPTIMIZED FOR YOUR VERTICAL PROPOSAL VIDEO */
-        .hero-container {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            background-color: #000;
-        }
-
-        #bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            transform: translate(-50%, -50%);
-            object-fit: cover; 
-            object-position: center 30%; 
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--overlay-dark));
-            z-index: -1;
-        }
-
-        .hero-content h1 { 
-            font-size: clamp(3rem, 8vw, 5.5rem); 
-            margin-bottom: 0.5rem; 
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-content p { 
-            font-size: 1.1rem; 
-            text-transform: uppercase; 
-            letter-spacing: 5px; 
-            font-weight: 300;
-        }
-
-        /* NAVIGATION */
-        nav {
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 1.2rem;
-            text-align: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--deep-charcoal);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: 0.3s;
-        }
-
-        nav a:hover { color: var(--primary-gold); }
-
-        /* SECTIONS */
-        .section { padding: 100px 10%; max-width: 1100px; margin: 0 auto; text-align: center; }
-
-        .verse {
-            font-family: 'Cormorant Upright', serif;
-            font-size: 2.5rem;
-            color: var(--primary-gold);
-            margin-bottom: 20px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
-            border-bottom: 3px solid var(--primary-gold);
-            text-align: left;
-        }
-
-        .card h3 { color: var(--primary-gold); margin-top: 0; }
-
-        /* BUTTONS */
-        .btn {
-            background: var(--primary-gold);
-            color: white;
-            padding: 18px 50px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 25px;
-            transition: 0.3s;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border: 1px solid var(--primary-gold);
-        }
-
-        .btn:hover { background: transparent; color: var(--primary-gold); transform: translateY(-3px); }
-
-        @media (max-width: 768px) { .hero-content h1 { font-size: 3.2rem; } .section { padding: 60px 20px; } }
+        .card { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border-bottom: 3px solid var(--primary-gold); margin-bottom: 30px; }
+        .btn { background: var(--primary-gold); color: white; padding: 18px 50px; text-decoration: none; display: inline-block; transition: 0.3s; font-weight: 600; text-align: center; width: fit-content; margin: 20px auto; display: block; }
     </style>
 </head>
 <body>
 
-    <div class="hero-container">
-        <video autoplay muted loop playsinline preload="auto" id="bg-video">
-            <source src="propvid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1>Abbas & Zehra</h1>
-            <p>October 31, 2026 • Keller, Texas</p>
-        </div>
-    </div>
+    <header class="hero-header">
+        <h1>Abbas & Zehra</h1>
+        <p>OCTOBER 31, 2026 • KELLER, TEXAS</p>
+    </header>
 
     <nav>
         <a href="#event">The Wedding</a>
-        <a href="#attire">Dress Code</a>
-        <a href="faq.html">FAQ</a> <a href="#travel">Luxury Stays</a>
-        <a href="#rsvp">RSVP</a>
+        <a href="faq.html">FAQ</a>
+        <a href="rsvp-page.html">RSVP</a>
     </nav>
 
     <section id="event" class="section">
-        <div class="verse">"And We created you in pairs."</div>
-        <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <h3>The Celebration</h3>
+        <div class="card">
             <h3>The Bowden</h3>
-            <p>1775 Keller Pkwy, Keller, TX 76248</p>
-            <p><strong>Ceremony:</strong> 5:00 PM in the Holly Chapel<br>
-            <strong>Reception:</strong> 6:30 PM in the Greater Keller Ballroom</p>
+            <p style="text-align: center;">1775 Keller Pkwy, Keller, TX 76248</p>
+            <p style="text-align: center;"><strong>Ceremony:</strong> 5:00 PM | <strong>Reception:</strong> 6:30 PM</p>
         </div>
     </section>
 
-    <section id="attire" class="section">
-        <h2>Suggested Attire</h2>
-        <div style="background: #fdfaf4; padding: 40px; border-radius: 12px; border: 1px solid #e5d5b7;">
-            <h3 style="color: var(--primary-gold);">Formal Fusion</h3>
-            <p>Guests are encouraged to wear <strong>Formal Cultural or Western Formal</strong> wear.</p>
-            <p style="font-style: italic; color: #666;">Sherwanis, Saris, Lehengas, Suits, or Gowns are all welcome.</p>
-        </div>
+    <div class="video-wrapper">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="propvid.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <section class="section">
+        <h3>Our Journey</h3>
+        <p style="text-align: center;">"And We created you in pairs."</p>
+        <a href="rsvp-page.html" class="btn">RSVP TO JOIN US</a>
     </section>
 
-    <section id="travel" class="section" style="background-color: #fcfcfc;">
-        <h2>Luxury Accommodations</h2>
-        <div class="info-grid">
-            <div class="card">
-                <h3>The Westin Southlake</h3>
-                <p>Modern luxury in Southlake Town Square, only minutes from the venue.</p>
-            </div>
-            <div class="card">
-                <h3>Hotel Drover</h3>
-                <p>Autograph Collection luxury in the Fort Worth Stockyards for a high-end Texas experience.</p>
-            </div>
-            <div class="card">
-                <h3>The Ritz-Carlton, Las Colinas</h3>
-                <p>A world-class resort experience with a championship golf course and expansive spa.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="rsvp" class="section" style="background-color: #f7f4f0;">
-        <h2>Join Our Celebration</h2>
-        <p>Please kindly respond by September 20th, 2026.</p>
-        <a href="mailto:abbas4hu@gmail.com?subject=Wedding RSVP - Abbas and Zehra&body=Guest Name:%0D%0ANumber of Guests:%0D%0ADietary Restrictions:" class="btn">RSVP VIA EMAIL</a>
-    </section>
-
-    <footer style="padding: 60px; color: #999; font-size: 0.75rem; text-align: center;">
-        ABBAS HUSSAIN & ZEHRA HASSAN • 2026 • THE BOWDEN
+    <footer style="padding: 40px; text-align: center; color: #aaa; font-size: 0.8rem;">
+        ABBAS HUSSAIN & ZEHRA HASSAN • 2026
     </footer>
 
 </body>
