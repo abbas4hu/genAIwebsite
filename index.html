@@ -26,7 +26,7 @@
         nav { position: sticky; top: 0; background: white; padding: 1.2rem; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); z-index: 1000; }
         nav a { margin: 0 15px; text-decoration: none; color: var(--deep-charcoal); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        /* THE BLURRED VIDEO WRAPPER (Fixes the black bars) */
+        /* THE BLURRED VIDEO WRAPPER */
         .video-container {
             position: relative;
             width: 100%;
@@ -38,17 +38,15 @@
             align-items: center;
         }
 
-        /* The blurred background video */
         .video-bg-blur {
             position: absolute;
-            width: 110%; /* Slightly larger to hide edges */
+            width: 110%;
             height: 110%;
             object-fit: cover;
             filter: blur(20px) brightness(0.6);
             z-index: 1;
         }
 
-        /* The crisp vertical video in front */
         .video-foreground {
             position: relative;
             z-index: 2;
@@ -61,6 +59,22 @@
         .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
         .card { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border-bottom: 3px solid var(--primary-gold); }
         .card h3 { color: var(--primary-gold); margin-top: 0; text-align: left; }
+
+        /* CREATIVE X-FACTOR STYLING */
+        .x-factor-note {
+            background: #f4f1ee;
+            padding: 40px;
+            margin-top: 60px;
+            border-radius: 4px;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            border-left: 4px solid var(--primary-gold);
+        }
     </style>
 </head>
 <body>
@@ -92,39 +106,12 @@
         <div class="card" style="text-align: center;">
             <h3>The Celebration</h3>
             <p><strong>The Bowden</strong><br>1775 Keller Pkwy, Keller, TX 76248</p>
+            <p><strong>Date:</strong> October 31, 2026</p>
             <p><strong>Ceremony:</strong> 5:00 PM | <strong>Reception:</strong> 6:30 PM</p>
         </div>
-    </section>
 
-    <section id="travel" class="section" style="background-color: #fcfcfc;">
-        <h2>Luxury Accommodations</h2>
-        <div class="info-grid">
-            <div class="card">
-                <h3>The Westin Southlake</h3>
-                <p>Located in Southlake Town Square. Offering modern luxury and sophisticated dining, just minutes from the venue.</p>
-            </div>
-            <div class="card">
-                <h3>Hotel Drover</h3>
-                <p>An Autograph Collection luxury stay in the Fort Worth Stockyards for a high-end Texas experience.</p>
-            </div>
-            <div class="card">
-                <h3>The Ritz-Carlton</h3>
-                <p>A world-class resort experience with a championship golf course and expansive luxury spa.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="dining" class="section">
-        <h2>Fine Dining in DFW</h2>
-        <div class="info-grid">
-            <div class="card">
-                <h3>Monarch</h3>
-                <p>Refined Italian cuisine on the 50th floor with breathtaking views of the Dallas skyline.</p>
-            </div>
-            <div class="card">
-                <h3>Truluck’s</h3>
-                <p>Top-tier seafood and stone crab in a sophisticated atmosphere nearby in Southlake.</p>
-            </div>
+        <div class="x-factor-note">
+            "A Creative X-Factor of this wedding page to improve functionality is adding an RSVP tab and button that pre-writes an email to my email address where the guest can easily email me their information."
         </div>
     </section>
 
